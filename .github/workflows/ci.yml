@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+      - name: Lint shell scripts
+        run: find . -name '*.sh' -exec shellcheck {} +
+
+  build:
+    name: Build & smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build release binary
+        run: cargo build --release
+      - name: Smoke test — help flag
+        run: ./target/release/fledge-plugin-todo --help 2>&1 || true
+      - name: Smoke test — scan self
+        run: |
+          output=$(./target/release/fledge-plugin-todo --json)
+          echo "$output"
+          echo "$output" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['schema_version']==1"
+      - name: Smoke test — fail-on-todo exits non-zero when TODOs exist
+        run: |
+          if ./target/release/fledge-plugin-todo --fail-on-todo; then
+            echo "Expected non-zero exit (source has TODOs), but got 0"
+            exit 1
+          fi

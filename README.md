@@ -1,5 +1,7 @@
 # fledge-plugin-todo
 
+[![CI](https://github.com/CorvidLabs/fledge-plugin-todo/actions/workflows/ci.yml/badge.svg)](https://github.com/CorvidLabs/fledge-plugin-todo/actions/workflows/ci.yml)
+
 A [fledge](https://github.com/CorvidLabs/fledge) plugin that scans your codebase for TODO/FIXME/HACK/XXX comments.
 
 Built in Rust. Zero runtime dependencies.
@@ -75,6 +77,12 @@ Skips: `.git`, `node_modules`, `target`, `.build`, `build`, `dist`, `vendor`, `_
 ## Identifier-aware matching
 
 The marker has to be a whole-word match. `MY_TODO_LIST` won't trigger; `// TODO: handle this` will. This avoids false positives on identifiers that happen to contain the marker letters.
+
+## Uninstall
+
+```bash
+fledge plugins remove todo
+```
 
 ## Build
 

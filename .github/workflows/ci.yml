@@ -3,15 +3,38 @@ name: CI
 on:
   push:
     branches: [main]
+    paths:
+      - src/**
+      - tests/**
+      - benches/**
+      - build.rs
+      - Cargo.toml
+      - Cargo.lock
+      - bin/**
+      - .github/workflows/ci.yml
   pull_request:
     branches: [main]
+    paths:
+      - src/**
+      - tests/**
+      - benches/**
+      - build.rs
+      - Cargo.toml
+      - Cargo.lock
+      - bin/**
+      - .github/workflows/ci.yml
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   shellcheck:
     name: ShellCheck
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install ShellCheck
         run: sudo apt-get install -y shellcheck
       - name: Lint shell scripts
@@ -20,8 +43,9 @@ jobs:
   build:
     name: Build & smoke test
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
       - name: Build release binary

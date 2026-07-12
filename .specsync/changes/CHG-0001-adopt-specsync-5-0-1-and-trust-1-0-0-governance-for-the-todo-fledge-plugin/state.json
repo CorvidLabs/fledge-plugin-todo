@@ -30,17 +30,7 @@
   "no_spec_change": false,
   "no_spec_change_rationale": null,
   "acceptance_criteria": [
-    "Strict SpecSync validation passes at 100% coverage; Claude",
-    "Cursor",
-    "Codex",
-    "and Gemini integrations report installed; Trust doctor and the native verify lane pass; ShellCheck",
-    "Rust formatting",
-    "clippy",
-    "tests",
-    "release build",
-    "manifest validation",
-    "JSON smoke",
-    "and blocking-mode smoke pass."
+    "Strict SpecSync validation passes at 100% coverage; Claude, Cursor, Codex, and Gemini integrations report installed; Trust doctor and the native verify lane pass; ShellCheck, Rust formatting, clippy, tests, release build, manifest validation, JSON smoke, and blocking-mode smoke pass."
   ],
   "selected_artifacts": [
     "context",

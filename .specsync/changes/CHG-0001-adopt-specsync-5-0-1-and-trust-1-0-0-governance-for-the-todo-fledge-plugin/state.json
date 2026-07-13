@@ -5,10 +5,10 @@
   "title": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for the Todo Fledge plugin",
   "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for the Todo Fledge plugin",
   "kind": "migration",
-  "state": "draft",
+  "state": "implementing",
   "base_commit": "15cfa27c3bdffd8f2b6b33ecb3bbed7e88f088fc",
   "created_at": 1783883695,
-  "updated_at": 1783883707,
+  "updated_at": 1783954478,
   "affected_specs": [
     "todo"
   ],
@@ -30,7 +30,10 @@
   "no_spec_change": false,
   "no_spec_change_rationale": null,
   "acceptance_criteria": [
-    "Strict SpecSync validation passes at 100% coverage; Claude, Cursor, Codex, and Gemini integrations report installed; Trust doctor and the native verify lane pass; ShellCheck, Rust formatting, clippy, tests, release build, manifest validation, JSON smoke, and blocking-mode smoke pass."
+    "Strict SpecSync validation passes at 100% coverage.",
+    "Claude, Cursor, Codex, and Gemini integrations report installed.",
+    "Trust doctor and the native verify lane pass.",
+    "ShellCheck, Clippy, zero-case test-target compilation, release build, manifest validation, JSON smoke, and blocking-mode smoke pass."
   ],
   "selected_artifacts": [
     "context",

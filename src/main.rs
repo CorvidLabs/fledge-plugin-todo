@@ -18,23 +18,15 @@ const ALL_MARKERS: &[&str] = &["TODO", "FIXME", "HACK", "XXX"];
 const DEFAULT_MARKERS: &[&str] = &["TODO", "FIXME"];
 
 const SKIP_DIRS: &[&str] = &[
-    ".git",
-    "node_modules",
-    "target",
-    ".build",
-    "build",
-    "dist",
-    "vendor",
-    "__pycache__",
-    ".venv",
-    "venv",
-    ".next",
-    ".nuxt",
+    ".git", "node_modules", "target", ".build", "build", "dist",
+    "vendor", "__pycache__", ".venv", "venv", ".next", ".nuxt",
 ];
 
 const SOURCE_EXTS: &[&str] = &[
-    "rs", "py", "js", "jsx", "ts", "tsx", "go", "rb", "java", "kt", "swift", "c", "cpp", "h",
-    "hpp", "cs", "php", "sh", "bash", "zsh", "fish", "lua", "ex", "exs", "erl", "clj", "scala",
+    "rs", "py", "js", "jsx", "ts", "tsx", "go", "rb",
+    "java", "kt", "swift", "c", "cpp", "h", "hpp",
+    "cs", "php", "sh", "bash", "zsh", "fish",
+    "lua", "ex", "exs", "erl", "clj", "scala",
 ];
 
 struct Options {
@@ -54,11 +46,7 @@ struct Finding {
 
 fn main() {
     let opts = parse_args(env::args().skip(1).collect());
-    let markers: &[&str] = if opts.all {
-        ALL_MARKERS
-    } else {
-        DEFAULT_MARKERS
-    };
+    let markers: &[&str] = if opts.all { ALL_MARKERS } else { DEFAULT_MARKERS };
 
     let mut findings: Vec<Finding> = Vec::new();
     walk(Path::new(&opts.dir), markers, &mut findings);
@@ -207,9 +195,7 @@ fn print_json(opts: &Options, markers: &[&str], findings: &[Finding]) {
     s.push_str(&escape(&opts.dir));
     s.push_str(r#"","tags_searched":["#);
     for (i, m) in markers.iter().enumerate() {
-        if i > 0 {
-            s.push(',');
-        }
+        if i > 0 { s.push(','); }
         s.push('"');
         s.push_str(m);
         s.push('"');
@@ -218,9 +204,7 @@ fn print_json(opts: &Options, markers: &[&str], findings: &[Finding]) {
     s.push_str(&findings.len().to_string());
     s.push_str(r#","matches":["#);
     for (i, f) in findings.iter().enumerate() {
-        if i > 0 {
-            s.push(',');
-        }
+        if i > 0 { s.push(','); }
         s.push_str(r#"{"file":""#);
         s.push_str(&escape(&f.path.display().to_string().replace('\\', "/")));
         s.push_str(r#"","line":"#);

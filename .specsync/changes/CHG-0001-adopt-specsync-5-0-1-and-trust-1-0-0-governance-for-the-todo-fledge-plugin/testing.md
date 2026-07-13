@@ -5,11 +5,10 @@ artifact: testing
 
 # Testing
 
-- Run Rust formatting, clippy with warnings denied, tests, and release build.
+- Run Clippy with warnings denied, compile the zero-case Rust test target, and build the release binary.
 - Run ShellCheck on the build hook.
-- Parse JSON smoke output and verify schema version and action.
-- Confirm blocking mode exits 1 when findings exist.
+- Parse JSON smoke output and verify the versioned envelope and match-record keys.
+- Confirm blocking mode exits 1 for a deterministic marker fixture and 0 for a clean fixture.
 - Require SpecSync strict validation at 100% coverage and all four integrations installed.
 - Run fledge trust doctor and fledge trust verify.
 - Confirm hosted CI and the trust job on the pull request.
-

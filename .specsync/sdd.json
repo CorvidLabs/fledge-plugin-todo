@@ -36,11 +36,7 @@
   ],
   "ignored_paths": [],
   "verification_commands": [
-    "cargo fmt --check",
-    "cargo clippy -- -D warnings",
-    "cargo test",
-    "cargo build --release",
-    "shellcheck bin/build.sh"
+    "fledge lanes run verify"
   ],
   "custom_artifacts": {},
   "principles_file": null

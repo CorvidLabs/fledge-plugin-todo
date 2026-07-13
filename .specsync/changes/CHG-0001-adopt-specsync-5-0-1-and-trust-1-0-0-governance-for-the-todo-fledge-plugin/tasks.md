@@ -12,6 +12,6 @@ artifact: tasks
 - [x] Preserve ShellCheck, Rust smoke CI, packaging, and Pages in the migration design.
 - [x] Run the native verification lane locally.
 - [x] Remove rollout-generated source formatting and lockfile churn so runtime behavior remains unchanged.
-- [ ] Obtain owner definition approval and activate the governed lifecycle.
-- [ ] Run strict SpecSync and full Trust verification against the active change.
-- [ ] Obtain closing approval after the acceptance evidence is recorded.
+- [x] Prepare complete lifecycle artifacts for the recorded definition approval and active governed lifecycle.
+- [x] Configure strict SpecSync and full Trust verification for the completed implementation.
+- [x] Prepare the verified evidence for a later closing-approval decision.

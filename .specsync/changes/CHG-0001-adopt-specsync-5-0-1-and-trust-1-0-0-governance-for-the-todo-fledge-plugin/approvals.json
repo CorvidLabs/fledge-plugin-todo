@@ -6,6 +6,13 @@
       "timestamp": 1783954477,
       "digest": "23456efdfd62469e8abc7b84c51756f432eb2a23d6b1bd862db1801e86430882",
       "note": "Definition approved after exact requirement-evidence and native-lane audit; unrelated formatting changes excluded."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783954651,
+      "digest": "7b46b55a73cd0c2a35d27b7ab33fcc4e2453f6aa62321a4774e097ec10cccae8",
+      "note": "Fresh definition approval after the authorized truthful circular-task rewrite; no hosted or closing outcome is claimed."
     }
   ]
 }

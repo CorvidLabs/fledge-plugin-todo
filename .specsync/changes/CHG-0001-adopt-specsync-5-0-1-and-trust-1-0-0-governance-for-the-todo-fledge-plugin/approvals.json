@@ -20,6 +20,13 @@
       "timestamp": 1783954813,
       "digest": "3a5526f11214f4845d8692a7ef125085c51cf639bfb1dd6eb5134a3b6188077c",
       "note": "Fresh definition approval after exact requirement-ID evidence mapping was added at the committed implementation head."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783954972,
+      "digest": "9af61ae23ab825173e1e980f2f894e38834b6e3a75c48e5cef19485ba432e36d",
+      "note": "Closing approval recorded after successful native verification and strict SpecSync validation at the committed evidence head."
     }
   ]
 }

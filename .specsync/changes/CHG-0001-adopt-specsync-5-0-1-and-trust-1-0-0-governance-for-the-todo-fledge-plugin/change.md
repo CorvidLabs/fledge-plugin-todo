@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-the-todo-fledge-plugin
-state: verifying
+state: implementing
 type: migration
 base_commit: 15cfa27c3bdffd8f2b6b33ecb3bbed7e88f088fc
 ---

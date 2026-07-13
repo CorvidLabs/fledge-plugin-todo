@@ -12,3 +12,5 @@ artifact: testing
 - Require SpecSync strict validation at 100% coverage and all four integrations installed.
 - Run fledge trust doctor and fledge trust verify.
 - Confirm hosted CI and the trust job on the pull request.
+
+The JSON-envelope smoke provides command evidence for REQ-todo-005. The deterministic blocking-mode fixtures provide command evidence for REQ-todo-006.

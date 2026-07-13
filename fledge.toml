@@ -1,0 +1,13 @@
+[tasks]
+build = "cargo build --release"
+dev = "cargo build"
+test = "cargo test"
+check = "cargo clippy -- -D warnings"
+shellcheck = "shellcheck bin/build.sh"
+manifest = "grep -q 'binary = \"bin/fledge-todo\"' plugin.toml && grep -q 'build = \"bin/build.sh\"' plugin.toml"
+smoke-json = "./target/release/fledge-plugin-todo --json | python3 -c \"import sys,json; data=json.load(sys.stdin); required={'schema_version','action','root','tags_searched','count','matches'}; assert required <= data.keys(); assert data['schema_version'] == 1 and data['action'] == 'todo'; assert all({'file','line','tag','text'} <= match.keys() for match in data['matches'])\""
+smoke-blocking = "tmpdir=$(mktemp -d); printf '// FIXME: smoke\\n' > \"$tmpdir/finding.rs\"; ./target/release/fledge-plugin-todo --fail-on-todo \"$tmpdir\" >/dev/null 2>&1; found_code=$?; printf '// clean fixture\\n' > \"$tmpdir/finding.rs\"; ./target/release/fledge-plugin-todo --fail-on-todo \"$tmpdir\" >/dev/null 2>&1; empty_code=$?; rm -rf \"$tmpdir\"; test \"$found_code\" -eq 1 && test \"$empty_code\" -eq 0"
+
+[lanes.verify]
+description = "Lint, compile-check, build, and smoke-test the Todo Fledge plugin"
+steps = ["check", "test", "build", "shellcheck", "manifest", "smoke-json", "smoke-blocking"]

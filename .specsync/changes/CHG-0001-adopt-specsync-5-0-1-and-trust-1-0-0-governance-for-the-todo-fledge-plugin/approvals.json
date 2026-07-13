@@ -1,0 +1,32 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783954477,
+      "digest": "23456efdfd62469e8abc7b84c51756f432eb2a23d6b1bd862db1801e86430882",
+      "note": "Definition approved after exact requirement-evidence and native-lane audit; unrelated formatting changes excluded."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783954651,
+      "digest": "7b46b55a73cd0c2a35d27b7ab33fcc4e2453f6aa62321a4774e097ec10cccae8",
+      "note": "Fresh definition approval after the authorized truthful circular-task rewrite; no hosted or closing outcome is claimed."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783954813,
+      "digest": "3a5526f11214f4845d8692a7ef125085c51cf639bfb1dd6eb5134a3b6188077c",
+      "note": "Fresh definition approval after exact requirement-ID evidence mapping was added at the committed implementation head."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783954972,
+      "digest": "9af61ae23ab825173e1e980f2f894e38834b6e3a75c48e5cef19485ba432e36d",
+      "note": "Closing approval recorded after successful native verification and strict SpecSync validation at the committed evidence head."
+    }
+  ]
+}
